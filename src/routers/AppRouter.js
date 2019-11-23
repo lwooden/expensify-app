@@ -23,7 +23,7 @@ const AppRouter = () => (
       <Switch> {/* Processes routes exclusively for betting matching */}
         <Route path="/" component={ExpenseDashboardPage} exact={true} /> {/* must be typed exactly in order to render */}
         <Route path="/create" component={AddExpensePage} />
-        <Route path="/edit" component={EditExpensePage} />
+        <Route path="/edit/:id" component={EditExpensePage} />
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
       </Switch>
