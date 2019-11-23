@@ -1,10 +1,10 @@
 import React from 'react'
 
 const EditExpensePage = (props) => {
-  console.log(props)
+  console.log(props) // inspect default props that are passed down by react-router "Route" component
   return (
     <div>
-      This is from my add edit component
+      Editing expense with id of {props.match.params.id}
     </div>
   )
 }
