@@ -39,10 +39,10 @@ const NotFoundPage = () => (
 const Header = () => (
   <header>
     <h1>Expensify</h1>
-    <Link to="/">Dashboard</Link>
-    <Link to="/create">Create Expense</Link>
-    <Link to="/edit">Edit Expense</Link>
-    <Link to="/help">Help</Link>
+    <NavLink to="/" activeClassName="is-active" exact={true}>Dashboard</NavLink>  {/* NavLink allows for easier styling */}
+    <NavLink to="/create" activeClassName="is-active">Create Expense</NavLink>
+    <NavLink to="/edit" activeClassName="is-active">Edit Expense</NavLink>
+    <NavLink to="/help" activeClassName="is-active">Help</NavLink>
   </header>
 )
 
