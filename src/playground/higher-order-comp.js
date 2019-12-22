@@ -22,15 +22,17 @@ const withAdminWarning = (WrappedComponent) => {
 
 }
 
-const requireAuthentication = (WrappedComponent) => {
-    return (props) => (
-        <div>
-            {props.isAuthenticated ? ( <WrappedComponent {...props} /> ) : ( <p>Please log in to see info!</p> )}
-        </div>
-
-    )
-
-}
+const requireAuthentication = WrappedComponent => {
+  return props => (
+    <div>
+      {props.isAuthenticated ? (
+        <WrappedComponent {...props} />
+      ) : (
+        <p>Please log in to see info!</p>
+      )}
+    </div>
+  );
+};
 
 const AdminInfo = withAdminWarning(Info)
 const AuthInfo = requireAuthentication(Info)
