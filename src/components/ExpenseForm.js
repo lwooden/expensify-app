@@ -1,16 +1,24 @@
 import React from 'react'
+import moment from 'moment'
+import {  SingleDatePicker } from 'react-dates'
+import 'react-dates/lib/css/_datepicker.css'
 
 // Goal - Create a reuseable component that will allow me to create and edit expenses
 // 1. Create a class component because I will need alot of functionality
 // 2. Export it for use in the AddExpense component
 // 3. Make sure it renders to the screen
 
+const now = moment()
+console.log(now.format('MMMM Do YYYY'))
+
 export default class ExpenseForm extends React.Component {
 
   state = {
       description: '',
       note: '',
-      amount: ''
+      amount: '',
+      createdAt: moment(),
+      calendarFocused: false
   }
 
   onDescriptionChange = (e) => {
@@ -30,6 +38,14 @@ export default class ExpenseForm extends React.Component {
         this.setState(() => ({ amount }))
       }
   }
+
+  onDateChange = (createdAt) => {
+      this.setState(() => ({ createdAt }))
+  }
+
+  onFocusChange = ({ focused  }) => {
+      this.setState(() => ({ calendarFocused: focused }))
+  }
   
 
   render() {
@@ -48,6 +64,14 @@ export default class ExpenseForm extends React.Component {
                 placeholder="amount"   
                 value={this.state.amount} 
                 onChange={this.onAmountChange}
+                />
+                <SingleDatePicker
+                date={this.state.createdAt}
+                onDateChange={this.onDateChange}
+                focused={this.state.calendarFocused}
+                onFocusChange={this.onFocusChange}
+                numberOfMonths={1}
+                isOutsideRange={() => false}
                 />
                 <textarea
                 placeholder="Add a note for your expense"
