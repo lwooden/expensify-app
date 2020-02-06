@@ -1,12 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import ExpenseForm from './ExpenseForm'
 
 const EditExpensePage = (props) => {
   console.log(props) // inspect default props that are passed down by react-router "Route" component
   return (
     <div>
-      Editing expense with id of {props.match.params.id}
+      <ExpenseForm
+        onSubmit={(expense) => {
+          console.log('updated', expense)
+        }}
+      />
     </div>
   )
 }
 
-export default EditExpensePage
+const mapStateToProps = (state, props) => {
+  return {
+    expense: state.expenses.find((expense) => {
+      return expense.id === props.match.params.id
+    })
+  }
+
+}
+
+export default connect(mapStateToProps)(EditExpensePage)
