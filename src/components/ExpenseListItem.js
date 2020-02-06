@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom' // create a clickable link that takes you to edit expense page
 import { removeExpense } from '../actions/expenses'
 
 
@@ -16,7 +17,9 @@ import { removeExpense } from '../actions/expenses'
 
 const ExpenseListItem = ({ description, amount, createdAt, id, dispatch }) => (
   <div>
+  <Link to={`/edit/${id}`}>
     <h3>{description}</h3>
+    </Link>
     <p>{amount} - {createdAt}</p>
     <button onClick={() => {
         console.log(id)
