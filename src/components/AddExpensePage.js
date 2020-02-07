@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import ExpenseForm from '../components/ExpenseForm'
+import ExpenseForm from './ExpenseForm'
 import { addExpense } from '../actions/expenses'
 
 // 1. Import connect so component can have access to the store
