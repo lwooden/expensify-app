@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Header from '../components/Header'
 import ExpenseDashboardPage from '../components/ExpenseDashboard'
-import AddExpensePage from '../components/AddExpense'
-import EditExpensePage from '../components/EditExpense.js'
-import HelpPage from '../components/Help'
-import NotFoundPage from '../components/404'
+import AddExpensePage from '../components/AddExpensePage'
+import EditExpensePage from '../components/EditExpensePage.js'
+import HelpPage from '../components/HelpPage'
+import NotFoundPage from '../components/404Page'
 
 // 1. Create high-level router component 
 // 2. Export it to app.js
