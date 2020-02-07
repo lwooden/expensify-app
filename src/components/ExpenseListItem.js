@@ -1,9 +1,5 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom' // create a clickable link that takes you to edit expense page
-import { removeExpense } from '../actions/expenses'
-
-
+import React from "react";
+import { Link } from "react-router-dom"; // create a clickable link that takes you to edit expense page
 
 // Export stateless functional component
 // Determine How To Render to Screen
@@ -15,18 +11,15 @@ import { removeExpense } from '../actions/expenses'
 // 4. Add "id" and "dispatch to the list of props I take in so I can use it in removeExpense
 // 5. Add onClick handler and use the "e" object to run dispatch and call removeExpense with "id" as a parameter
 
-const ExpenseListItem = ({ description, amount, createdAt, id, dispatch }) => (
+const ExpenseListItem = ({ description, amount, createdAt, id }) => (
   <div>
-  <Link to={`/edit/${id}`}>
-    <h3>{description}</h3>
+    <Link to={`/edit/${id}`}>
+      <h3>{description}</h3>
     </Link>
-    <p>{amount} - {createdAt}</p>
-    <button onClick={() => {
-        console.log(id)
-         dispatch(removeExpense({ id }))
-    }} >Remove</button>
+    <p>
+      {amount} - {createdAt}
+    </p>
   </div>
 );
 
-
-export default connect()(ExpenseListItem)
+export default ExpenseListItem;
