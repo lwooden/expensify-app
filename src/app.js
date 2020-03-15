@@ -11,6 +11,8 @@ import { addExpense } from '../src/actions/expenses'
 import { setTextFilter } from '../src/actions/filters'
 import getVisibleExpenses from '../src/selectors/expenses'
 
+import './firebase/firebase' // runs the database file
+
 
 const store = configureStore() // Define Redux Store
 
